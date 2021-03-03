@@ -60,7 +60,7 @@ For !".h" and !".cpp":
 ```
 ```sh
 
-6. Найдите полный пусть до файла any.hpp внутри библиотеки boost.
+6. Найдите полный путь до файла any.hpp внутри библиотеки boost.
 
 Command: 
   $ find `pwd` -name "any.hpp"
@@ -105,7 +105,7 @@ Commands:
 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
 
 Command:
-  $ mv ~/boost_1_69_0/boost_output/lib/* ~/boost-lib
+  $ mv ~/boost_1_69_0/boost_output/lib/* ~/boost-lib/
 ```
 ```sh
 
