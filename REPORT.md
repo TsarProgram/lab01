@@ -7,6 +7,7 @@
 
 Command:
   $ wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
+  //скачивает файл, находящийся по данному адресу
 ```
 ```sh
 
@@ -14,17 +15,19 @@ Command:
 
 Command:
   $ tar -xf boost_1_69_0.tar.gz
+  // разархивирывает данный файл
 ```
 ```sh
 
 3. Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
 
 Command:
-  $ tree -L 1 
+  $ tree -L 1 //отображает все файлы и директории в искомой директории
   OR 
-  $ find . -maxdepth 1 -type f | wc
+  $ find . -maxdepth 1 -type f | wc //отображает все файлы в искомой директории
   OR
-  $ ls. -l | grep "^-" | wc
+  $ ls. -l | grep "^-" | wc //отображает все файлы в искомой директории
+  
 
 Result: 12;
 ```
@@ -33,11 +36,11 @@ Result: 12;
 4. Подсчитайте количество файлов в директории ~/boost_1_69_0 включая вложенные директории.
 
 Command:
-  $ tree
+  $ tree //отображает все файлы и директории рекурсивно, начиная с текущей директории
   OR
-  $ find.  -type f | wc
+  $ find.  -type f | wc //отображает все файлы рекурсивно, начиная с текущей директории
   OR
-  $ ls. -lR | grep "^-" | wc
+  $ ls. -lR | grep "^-" | wc //отображает все файлы рекурсивно, начиная с текущей директории
   
 Result: 61192;
 ```
@@ -57,13 +60,15 @@ For !".h" and !".cpp":
      Result == 47122;
      Command:
        $ find. -type f -not -name "*.cpp" -not -name "*.h" | wc
+       
+       // find. -type f -name ищет файлы по данному имени (find. -type f -not -name  ищет все файлы, не свзанные с заданным именем)
 ```
 ```sh
 
 6. Найдите полный путь до файла any.hpp внутри библиотеки boost.
 
 Command: 
-  $ find `pwd` -name "any.hpp"
+  $ find `pwd` -name "any.hpp" //find `pwd` выводит путь до файла с данным именем
 
 Part of the result: 
 /home/vitaliy/boost_1_69_0/boost/fusion/include/any.hpp
@@ -78,7 +83,7 @@ Part of the result:
 7. Выведите в консоль все файлы, где упоминается последовательность boost::asio.
 
 Command: 
-  $ grep -lR "boost::asio"
+  $ grep -lR "boost::asio" // grep выводит все файлы, содержащие данную строку
 
 Part of the result:
 boost_output/include/boost/process/io.hpp
@@ -105,14 +110,15 @@ Commands:
 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
 
 Command:
-  $ mv ~/boost_1_69_0/boost_output/lib/* ~/boost-lib/
+  $ mv ~/boost_1_69_0/boost_output/lib/* ~/boost-lib/ 
+  // mv перемещает все файлы из первой директории во вторую
 ```
 ```sh
 
 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
 
 Command: 
-  $ du -ah
+  $ du -ah // du выводит размер всех файлов в заданной директории
 
 Part of the result: 
 460K	./lib/libboost_math_tr1.so.1.69.0
@@ -125,14 +131,14 @@ Part of the result:
 OR
 
   $ sudo apt install ncdu
-  $ ncdu
+  $ ncdu // ncdu выводит размер всех файлов в заданной директории и располагает их от большего размера к меньшему
 ```
 ```sh
 
 11. Найдите топ10 самых "тяжёлых".
 
 Command: 
-  $ du -ah | sort -rh | head -10
+  $ du -ah | sort -rh | head -10 // sort -rh head -10 сортирует и находит размер 10 наибольших файлов в заданной директории
 
 Result:
 54M	./lib
