@@ -104,6 +104,10 @@ Commands:
   $ ./bootstrap.sh --prefix=boost_output
   $ ./b2 install
   $ ./b2 install -j 8
+
+Result:
+Building Boost.Build engine with toolset gcc... tools/build/src/engine/bin.linuxx86_64/b2
+Bootstrapping is done.
 ```
 ```sh
 
